@@ -1,0 +1,66 @@
+@use "../utilities/colors" as *;
+@use "../utilities/typography" as *;
+@use "../utilities/variables" as *;
+@use "../utilities/breakpoints" as *;
+@import "../utilities/placeholders";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+  font-size: var(--btn-fsz, 14px);
+  color: var(--btn-clr);
+  background-color: var(--btn-bg);
+  width: var(--btn-width, fit-content);
+  min-height: var(--btn-height);
+  border: var(--btn-border);
+  border-radius: var(--btn-bdr-radius);
+  padding: var(--btn-padding);
+  white-space: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+  animation: var(--btn-animation);
+
+  &:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-clr);
+  }
+  &.-primary {
+    --btn-clr: var(--clr-neutral-0);
+    --btn-bg: var(--clr-primary-500);
+    --btn-hover-bg: var(--clr-primary-400);
+  }
+  &.-outlined {
+    --btn-clr: var(--clr-neutral-0);
+    --btn-bg: transparent;
+    --btn-border: 1px solid var(--clr-neutral-900);
+    --btn-hover-clr: var(--clr-neutral-100);
+    --btn-hover-bg: var(--clr-neutral-0);
+  }
+  &.-transparent {
+    --btn-clr: var(--clr-neutral-0);
+    --btn-bg: transparent;
+    --btn-hover-clr: var(--clr-primary-400);
+  }
+  &.-md {
+    --btn-gap: 6px;
+    --btn-height: 40px;
+    --btn-bdr-radius: 4px;
+    --btn-padding: 10px 24px;
+  }
+
+  &.-lg {
+    font-size: 16px;
+    font-weight: 600;
+    --btn-gap: 8px;
+    --btn-bdr-radius: 4px;
+    --btn-height: 52px;
+    --btn-padding: 12px 24px;
+  }
+}
+
+@include for-size(xxs) {
+  .button {
+    white-space: wrap;
+  }
+}

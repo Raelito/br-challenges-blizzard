@@ -1,0 +1,92 @@
+@use "sass:math";
+@use "../utilities/variables" as *;
+@import "../utilities/breakpoints";
+.container {
+  margin: 0 auto;
+  align-items: center;
+  height: 100%;
+}
+.grid {
+  display: grid;
+  max-width: 100%;
+  &.-center {
+    align-items: center;
+  }
+}
+
+.card-container {
+  display: grid;
+  gap: var(--card-gap);
+  max-width: 100%;
+  &.-fluid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--card-size), 100%), 1fr)
+    );
+  }
+  &.-count {
+    grid-template-columns: repeat(var(--card-count), 1fr);
+  }
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 18px;
+  --link-decoration: underline;
+  --link-h-color: var(--clr-primary-500);
+}
+
+@include for-size(sm) {
+  .container {
+    width: min(90%, $desktopContainer);
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $mobileGap;
+  }
+  @for $colEnd from 1 through 4 {
+    .sm-span-#{$colEnd} {
+      grid-column: span #{$colEnd};
+    }
+  }
+}
+
+@include for-size(md) {
+  .container {
+    width: min(90%, $desktopContainer);
+  }
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: $desktopGap;
+  }
+
+  @for $colEnd from 1 through 6 {
+    .md-span-#{$colEnd} {
+      grid-column: span #{$colEnd};
+    }
+  }
+}
+
+@include for-size(lg) {
+  .container {
+    width: min(90%, $desktopContainer);
+  }
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: $desktopGap;
+  }
+  //GERA LINHAS DO GRID
+
+  @for $colEnd from 1 through 12 {
+    .lg-span-#{$colEnd} {
+      grid-column: span #{$colEnd};
+    }
+  }
+}

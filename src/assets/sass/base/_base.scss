@@ -1,0 +1,68 @@
+@use "../utilities/colors" as *;
+@use "../utilities/typography" as *;
+@use "../utilities/breakpoints" as *;
+@import "../utilities/placeholders";
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+dialog{
+  padding: 0;
+  overflow: hidden;
+}
+
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+}
+body {
+  background: var(--clr-neutral-100);
+  color: var(--clr-neutral-0);
+  @extend %body, %-md;
+  font-weight: 400;
+  line-height: 170%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+////////////////////////////////////////////////
+//////////////////SCROLLBAR///////////////////
+////////////////////////////////////////////////
+
+@include for-size(lg) {
+  ::-webkit {
+    &-scrollbar {
+      width: 8px;
+    }
+    &-scrollbar-track {
+      box-shadow: none;
+      border-radius: 4px;
+    }
+    &-scrollbar-thumb {
+      background: var(--clr-primary-500);
+      border-radius: 4px;
+    }
+    &-scrollbar-thumb:hover {
+      background: var(--clr-primary-400);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+/* @use "../utilities/variables" as *; */
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  > * {
+    fill: var(--icon-fill, currentColor);
+    opacity: var(--icon-opacity, unset);
+  }
+}

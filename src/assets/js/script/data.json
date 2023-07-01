@@ -1,0 +1,168 @@
+{
+  "games": [
+    {
+      "titulo": "Diablo II: Resurrected",
+      "tipo": "RPG de ação",
+      "imagem": "diablo2",
+      "logo": "diablo2",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Overwatch",
+      "tipo": "Ação em equipe",
+      "imagem": "overwatch",
+      "logo": "overwatch",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Overwatch 2",
+      "tipo": "Ação em equipe",
+      "imagem": "overwatch2",
+      "logo": "overwatch2",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "World of Warcraft Classic",
+      "tipo": "RPG multijogador em massa",
+      "imagem": "wow",
+      "logo": "wow",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Hearthstone",
+      "tipo": "Jogo de cards estratégicos",
+      "imagem": "hearthstone",
+      "logo": "hearthstone",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Heroes of Storm",
+      "tipo": "RPG de ação",
+      "imagem": "heroes",
+      "logo": "heroes",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Diablo IV",
+      "tipo": "RPG de ação",
+      "imagem": "diablo4",
+      "logo": "diablo4",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Warcraft III Reforged",
+      "tipo": "RPG de ação",
+      "imagem": "Warcraft",
+      "logo": "Warcraft",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "Diablo III",
+      "tipo": "RPG de ação",
+      "imagem": "diablo3",
+      "logo": "diablo3",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "StarCraft II",
+      "tipo": "RPG de ação",
+      "imagem": "starcraft2",
+      "logo": "starcraft2",
+      "console": "battlenet "
+    },
+    {
+      "titulo": "StarCraft Remastered",
+      "tipo": "RPG de ação",
+      "imagem": "starcraft",
+      "logo": "starcraft",
+      "console": "battlenet "
+    }
+  ],
+  "sliderHero": [
+    {
+      "title": "Retorne à escuridão com o game Diablo IV",
+      "text": "O retorno de Lilith traz uma era de escuridão e sofrimento.",
+      "image": "diablo4",
+      "logo": "diablo4",
+      "buttonText": "Jogue Agora"
+    },
+    {
+      "title": "Novo pacote de expansão de Hearthstone",
+      "text": "A Horda e a Aliança se encontraram no Vale Alterac para lutar.",
+      "image": "hearthstone",
+      "logo": "hearthstone",
+      "buttonText": "Reserve agora na pré-venda"
+    },
+    {
+      "title": "Desbrave as Terras Sombrias em Shadowlands! ",
+      "text": "O que jaz além do mundo que você conhece?",
+      "image": "wow",
+      "logo": "wow",
+      "buttonText": "Reserve agora na pré-venda"
+    },
+    {
+      "title": "Matança de demônios em qualquer lugar",
+      "text": "Enfrente males ancestrais e descubra o que aconteceu entre Diablo II e Diablo III!",
+      "image": "diablo",
+      "logo": "diablo",
+      "buttonText": "Jogue agora"
+    },
+    {
+      "title": "Declare guerra por toda a galáxia",
+      "text": "Você vai conseguir se tornar o maior comandante da galáxia?",
+      "image": "starcraft2",
+      "logo": "starcraft2",
+      "buttonText": "Jogue agora"
+    }
+  ],
+  "submenuGames": [
+    {
+      "title": "Diablo® II ressurected",
+      "image": "diablo2"
+    },
+    {
+      "title": "Overwatch® 2",
+      "image": "overwatch2"
+    },
+    {
+      "title": "World of Warcraft®",
+      "image": "wow"
+    },
+    {
+      "title": "Hearthstone",
+      "image": "hearthstone"
+    },
+    {
+      "title": "Heroes of the storm®",
+      "image": "heroes"
+    },
+    {
+      "title": "Warcraft® III Reforged",
+      "image": "warcraft3"
+    },
+    {
+      "title": "Diablo® IV",
+      "image": "diablo4"
+    },
+    {
+      "title": "Diablo® Immortal",
+      "image": "diablo"
+    },
+    {
+      "title": "Diablo® III",
+      "image": "diablo3"
+    },
+    {
+      "title": "StarCraft® II",
+      "image": "starcraft2"
+    },
+    {
+      "title": "StarCraft® Remastered",
+      "image": "starcraft"
+    },
+    {
+      "title": "Arcade da Blizzard®",
+      "image": "arcade"
+    }
+  ]
+}

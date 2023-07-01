@@ -1,0 +1,51 @@
+$ff-main: "Poppins", sans-serif;
+
+$min: 576px;
+$max: 1920px;
+
+$tabletContainer: 672px;
+$desktopGap: 32px;
+$desktopContainer: 1312px;
+$mobileGap: 16px;
+
+$heading: (
+  "xxl": (
+    min: 40px,
+    max: 64px,
+  ),
+  "xl": (
+    min: 28px,
+    max: 32px,
+  ),
+  "md": (
+    min: 14px,
+    max: 20px,
+  ),
+  "sm": (
+    min: 12px,
+    max: 14px,
+  ),
+);
+
+$body: (
+  "lg": (
+    min: 18px,
+    max: 18px,
+  ),
+  "md": (
+    min: 16px,
+    max: 16px,
+  ),
+  "sm": (
+    min: 14px,
+    max: 14px,
+  ),
+);
+
+//MARGIN BOTTON
+$mb: 192, 160, 128, 96, 68, 64, 60, 56, 48, 40, 32, 24, 20, 16, 20, 8;
+
+//ICONS
+/* $icon-list: "apple", "battlenet", "buy", "connect", "menu", "ps", "smarthphone",
+  "switch", "screen", "xbox", "user", "downloads", "chat", "trophy";
+$icon-dir: "../img/icons/"; */

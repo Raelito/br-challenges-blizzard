@@ -1,0 +1,308 @@
+/*  background: radial-gradient(
+        72.28% 72.28% at 52.36% 25.95%,
+        hsla(240, 20%, 1%, 0) 0%,
+        hsla(240, 20%, 1%, 0.75) 71.1%
+      ); */
+
+@use "../utilities/variables" as *;
+@use "../components/buttons" as *;
+@use "../utilities/animations" as *;
+@import "../utilities/placeholders";
+@import "../utilities/breakpoints";
+
+.card {
+  display: grid;
+  width: 100%;
+  &.-games {
+    gap: 24px;
+    position: relative;
+    border-radius: 4px;
+
+    > .figure {
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      min-width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 4px;
+      transition: all 0.3s;
+
+      > * {
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+      }
+      > .image {
+        min-width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        scale: 1;
+        transition: scale 0.3s;
+        z-index: -2;
+      }
+      > .logo {
+        align-self: end;
+        justify-self: center;
+        width: min(50%, 148px);
+        padding-bottom: fluid(32px, 44px, $min, $max);
+        z-index: 1;
+      }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          hsla(240, 20%, 1%, 0.1) 55%,
+          hsla(240, 20%, 1%, 0.725) 90%
+        );
+        opacity: 0.5;
+        /* background: linear-gradient(
+          180deg,
+          hsla(240, 20%, 1%, 0.1) 80%,
+          hsla(240, 20%, 1%, 0.725) 100%
+        ); */
+        transition: opacity 0.5s;
+      }
+    }
+    > .body {
+      display: grid;
+      gap: 4px;
+      > .title {
+        @extend %heading, %-md, %-fw-600;
+      }
+      > .text {
+        @extend %heading, %-sm, %-fw-400, %-neutral-980;
+      }
+    }
+    &:hover {
+      > .figure > .image {
+        scale: 1.1;
+      }
+      > .figure::before {
+        /* background: linear-gradient(
+            180deg,
+            hsla(240, 20%, 1%, 0.1) 55%,
+            hsla(240, 20%, 1%, 0.725) 90%
+          ); */
+        opacity: 1;
+      }
+    }
+  }
+  &.-games.-more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    order: 1;
+    border: 1.5px solid var(--clr-neutral-600);
+    min-width: 100%;
+    aspect-ratio: 3/4;
+
+    > .image {
+      max-height: 40px;
+    }
+  }
+  &.-slider {
+    > .container {
+      padding: 184px 0 88px;
+      width: 100%;
+
+      > .header > *,
+      > .body > *,
+      > .footer {
+        opacity: 0;
+        position: relative;
+      }
+      > .header,
+      > .body {
+        position: relative;
+        place-items: end;
+      }
+      > .header,
+      > .footer {
+        grid-row: 1;
+        grid-column: 8/13;
+        place-self: end;
+        top: -25%;
+        > .logo {
+          animation: var(--image-animation);
+        }
+      }
+      > .body {
+        grid-row: 1 / span 2;
+        grid-column: 3 / 9;
+        > .title {
+          @extend %heading, %-xxl, %-fw-700;
+          @extend %mb-16;
+          animation: var(--heading-animation);
+          word-wrap: break-word;
+        }
+        > .text {
+          @extend %mb-32;
+          animation: var(--body-animation);
+        }
+      }
+      > .footer {
+        grid-row: 2;
+        grid-column: 10/13;
+        display: grid;
+        gap: 16px;
+        top: 30%;
+        animation: var(--footer-animation);
+        > .text {
+          @extend %body, %-sm, %-uppercase, %-fw-600;
+        }
+        > .video-container {
+          display: grid;
+          border-radius: 4;
+          overflow: hidden;
+          > * {
+            place-self: center;
+            grid-row: 1 / -1;
+            grid-column: 1 / -1;
+            border-radius: 4px;
+            opacity: 1;
+            transition: all 0.3s;
+          }
+          > .play {
+            z-index: 3;
+          }
+          > .cover {
+            width: 280px;
+            height: 158px;
+            z-index: 2;
+          }
+          > .video {
+            width: 280px;
+            height: 158px;
+            z-index: 1;
+          }
+          &::-webkit-media-controls {
+            display: none !important;
+          }
+          &:hover {
+            cursor: pointer;
+            > .play,
+            > .cover {
+              display: none;
+            }
+          }
+        }
+      }
+      > .figure {
+        margin-inline: -50%;
+        grid-column: 1 / -1;
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
+        > .image {
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+        }
+        &::before {
+          content: "";
+          display: block;
+          background: radial-gradient(
+            72.28% 72.28% at 52.36% 25.95%,
+            hsla(240, 20%, 1%, 0) 0%,
+            hsla(240, 20%, 1%, 0.75) 71.1%
+          );
+          position: absolute;
+          inset: 0;
+        }
+      }
+    }
+  }
+  &.swiper-slide-active {
+    --heading-animation: show-up 1s 0.25s 1 forwards;
+    --body-animation: show-up 1s 0.5s 1 forwards;
+    --image-animation: fade-up 1s 0.75s 1 forwards;
+    --footer-animation: show-up 1s 1s 1 forwards;
+    --btn-animation: fade-up 1s 1s 1 forwards;
+  }
+  &.-submenu {
+    place-items: center;
+    padding: 20px 0 32px;
+    border-radius: 8px;
+    opacity: 0;
+
+    > .figure > .image {
+      transition: transform 0.3s;
+      transform: var(--image-transform);
+    }
+    > .header {
+      > .body {
+        font-size: 14px;
+        text-align: center;
+        color: var(--body-color, var(--clr-neutral-800));
+        transition: all 0.3s;
+      }
+    }
+    &:hover {
+      --image-transform: translate3d(0, -8px, 0);
+      background-color: var(--clr-neutral-200);
+      --body-color: var(--clr-neutral-0);
+    }
+  }
+}
+
+.swiper,
+.swiper-container {
+  overflow: visible;
+  margin: 0;
+}
+.progress-bar {
+  --progress: 0;
+  content: "";
+  margin-inline: calc(50% - 50vw);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: var(--clr-primary-500);
+  width: calc(100 * (var(--progress)) * 1%);
+  height: 4px;
+}
+
+@include for-size(sm) {
+  .card.-games > .body {
+    display: none;
+  }
+  .card.-slider > .container {
+    padding: 128px 0 188px;
+    > .body {
+      grid-column: 1 / 5;
+    }
+    > .footer,
+    > .header {
+      display: none;
+    }
+  }
+}
+
+@include for-size(md) {
+  .card.-slider > .container {
+    > .body {
+      grid-column: 1 / 5;
+    }
+    > .footer,
+    > .header {
+      grid-column: 4/7;
+      place-self: end;
+    }
+    > .footer > .text {
+      display: none;
+    }
+  }
+  .slider-wow > .container > .figure > .image {
+    object-position: 90%;
+  }
+  .slider-hearthstone > .container > .figure > .image {
+    object-position: 80% 0%;
+  }
+}

@@ -1,0 +1,87 @@
+@use "sass:map";
+@use "../utilities/variables" as *;
+
+%heading {
+  color: var(--clr-neutral-0);
+  font-family: $ff-main;
+  font-weight: 700;
+  @each $name, $sizes in $heading {
+    &%-#{$name} {
+      font-size: fluid(
+        map.get($sizes, "min"),
+        map.get($sizes, "max"),
+        $min,
+        $max
+      );
+      line-height: 120%;
+    }
+  }
+}
+
+%body {
+  font-family: $ff-main;
+  //sizes
+  @each $name, $sizes in $body {
+    &%-#{$name} {
+      font-size: fluid(
+        map.get($sizes, "min"),
+        map.get($sizes, "max"),
+        $min,
+        $max
+      );
+    }
+  }
+}
+
+%heading,
+%body {
+  //colors
+
+  &%-primary {
+    color: var(--clr-primary-500);
+  }
+
+  &%-primary-600 {
+    color: var(--clr-primary-600);
+  }
+  &%-neutral-980 {
+    color: var(--clr-neutral-980);
+  }
+  &%-neutral-080 {
+    color: var(--clr-neutral-80);
+  }
+  &%-neutral-010 {
+    color: var(--clr-neutral-10);
+  }
+
+  //text transform
+  &%-uppercase {
+    text-transform: uppercase;
+  }
+  //font weight
+  &%-fw {
+    &-700 {
+      font-weight: 700;
+    }
+    &-600 {
+      font-weight: 600;
+    }
+    &-500 {
+      font-weight: 500;
+    }
+    &-400 {
+      font-weight: 400;
+    }
+  }
+}
+
+@each $size in $mb {
+  %mb-#{$size} {
+    margin-bottom: fluid(
+      calc($size * 1px * 0.5),
+      calc($size * 1px),
+      $min,
+      $max
+    );
+  }
+}

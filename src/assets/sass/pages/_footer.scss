@@ -1,0 +1,51 @@
+@import "../utilities/breakpoints";
+@import "../utilities/placeholders";
+@import "../layout/margin";
+
+#footer {
+  background-image: url("../img/download-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 96px 0;
+  > .container > .image-container {
+    margin-right: -50%;
+    position: relative;
+    > .screen {
+      &-1 {
+        z-index: 1;
+        position: relative;
+        animation: move-up 10s 0.75s ease-in-out infinite;
+      }
+      &-2 {
+        z-index: 2;
+        position: absolute;
+        inset: auto auto -5% 15%;
+        animation: move-up 8s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@include for-size(sm) {
+  #footer > .container {
+    > .content {
+      grid-row: 1;
+      z-index: 2;
+    }
+    > .image-container {
+      grid-row: 2;
+      z-index: 1;
+    }
+  }
+}
+
+@include for-size(md) {
+  #footer > .container {
+    > .content {
+      grid-row: 1;
+    }
+    > .image-container {
+      grid-row: 1;
+    }
+  }
+}

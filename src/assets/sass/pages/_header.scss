@@ -1,0 +1,119 @@
+@use "../layout/layout" as *;
+@import "../utilities/breakpoints";
+#header {
+  position: relative;
+
+  > .container {
+    > .nav.-header {
+      grid-row: 1;
+      grid-column: 1 / -1;
+      align-items: center;
+      padding: 28px 0;
+      width: 100%;
+      inset: auto 0;
+      z-index: 2;
+      position: relative;
+
+      &:after,
+      &:before {
+        content: "";
+        display: inline-flex;
+        width: 42px;
+        height: 2px;
+        bottom: 0;
+        position: absolute;
+        background-color: var(--clr-primary-500);
+      }
+      &:before {
+        content: "";
+        display: inline-flex;
+        min-width: 2000px;
+        height: 1px;
+        bottom: 0;
+        margin-inline: calc(50% - 50vw);
+        position: absolute;
+        background-color: var(--clr-neutral-10);
+      }
+      > .buttons-wrapper {
+        z-index: 10;
+      }
+    }
+
+    > .hero {
+      grid-row: 1 / 12;
+      grid-column: 1 / -1;
+      grid-template-rows: repeat(10, 1fr);
+      isolation: isolate;
+      z-index: 1;
+      > .card-container {
+        grid-column: 1 / -1;
+      }
+      > .games-thumbs {
+        grid-row: 4 / span 5;
+        top: 0;
+        z-index: 3;
+        grid-column: 1;
+        width: 100%;
+      }
+      > .games-slider {
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: center;
+  justify-self: end;
+  > .hamburger {
+    background-color: var(--clr-neutral-900);
+    width: 28px;
+    height: 2px;
+  }
+}
+
+@include for-size(sm) {
+  #header > .container {
+    > .nav.-header > .buttons-wrapper {
+      display: none;
+    }
+    > .hero > .games-thumbs {
+      grid-row: 9;
+    }
+  }
+}
+
+@include for-size(md) {
+  #header > .container {
+    > .nav.-header > .list.-menu-header {
+      display: none;
+    }
+    > .nav.-header > .buttons-wrapper {
+      justify-self: end;
+    }
+    > .hero > .games-thumbs {
+      grid-row: 9 / span 10;
+      grid-column: 1 / -1;
+      place-self: center start;
+      height: fit-content;
+    }
+  }
+}
+
+@include for-size(lg) {
+  #header > .container {
+    > .nav.-header > .list.-menu-header {
+      justify-self: start;
+    }
+    > .nav.-header > .buttons-wrapper {
+      justify-self: end;
+    }
+    > .nav.-header > .menu-toggle {
+      display: none;
+    }
+  }
+}

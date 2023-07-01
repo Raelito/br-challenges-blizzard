@@ -1,0 +1,13 @@
+$mb: 112, 88, 68, 60, 48, 40, 32, 24, 20, 16, 20;
+
+@each $size in $mb {
+  .mb-#{$size} {
+    margin-bottom: calc($size * 1px);
+  }
+}
+
+@each $size in $mb {
+  %mb-#{$size} {
+    margin-bottom: calc($size * 1px);
+  }
+}

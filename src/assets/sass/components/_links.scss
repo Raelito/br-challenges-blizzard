@@ -1,0 +1,18 @@
+@use "../utilities/colors" as *;
+@use "../utilities/variables" as *;
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--link-gap);
+  color: var(--link-color, --item-color);
+  transition: all 0.3s;
+  text-decoration: var(--link-decoration);
+  > .icon {
+    rotate: var(--icon-rotate);
+    transition: all 0.3s;
+  }
+  &:hover {
+    color: var(--link-h-color);
+  }
+}

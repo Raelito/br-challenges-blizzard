@@ -1,0 +1,65 @@
+@use "sass:map";
+@use "../utilities/colors" as *;
+@use "../utilities/variables" as *;
+
+.heading {
+  font-family: $ff-main;
+  @each $name, $sizes in $heading {
+    &.-#{$name} {
+      font-size: fluid(
+        map.get($sizes, "min"),
+        map.get($sizes, "max"),
+        $min,
+        $max
+      );
+      line-height: 120%;
+    }
+  }
+}
+
+.body {
+  font-family: $ff-main;
+  //sizes
+  @each $name, $sizes in $body {
+    &.-#{$name} {
+      font-size: fluid(
+        map.get($sizes, "min"),
+        map.get($sizes, "max"),
+        $min,
+        $max
+      );
+    }
+  }
+}
+
+.body,
+.heading {
+  //colors
+  &.-neutral {
+    &-880 {
+      color: var(--clr-neutral-880);
+    }
+  }
+  //text transform
+  &.-uppercase {
+    text-transform: uppercase;
+  }
+  &.-underline {
+    text-decoration: underline;
+  }
+  //font weight
+  &.-fw {
+    &-700 {
+      font-weight: 700;
+    }
+    &-600 {
+      font-weight: 600;
+    }
+    &-500 {
+      font-weight: 500;
+    }
+    &-400 {
+      font-weight: 500;
+    }
+  }
+}

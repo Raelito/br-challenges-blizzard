@@ -1,0 +1,14 @@
+.slider-controls {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  aspect-ratio: 5 / 1;
+  margin: 0 auto;
+}
+
+.swiper-pagination {
+  &-bullet {
+    --swiper-pagination-bullet-size: 12px;
+    aspect-ratio: 1 / 1;
+  }
+}

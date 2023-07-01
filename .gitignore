@@ -1,0 +1,13 @@
+
+design
+backup
+node_modules
+*.sketch
+*.fig
+*.xd
+gulpfile.js
+
+
+.DS_Store
+.prettierignore
+.backup

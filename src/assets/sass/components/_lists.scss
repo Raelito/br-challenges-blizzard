@@ -1,0 +1,109 @@
+@use "../utilities/variables" as *;
+@import "../utilities/placeholders";
+@import "../utilities/breakpoints";
+
+.list {
+  display: flex;
+  flex-direction: var(--list-direction);
+  gap: var(--list-gap);
+  animation: var(--list-animation);
+  > .item {
+    display: flex;
+    flex-direction: var(--item-direction);
+    align-items: center;
+    gap: var(--item-gap);
+    color: var(--item-color);
+    transition: all 0.3s;
+    &:hover {
+      > .link > .icon > *,
+      > .icon > * {
+        fill: var(--icon-h-fill);
+      }
+    }
+  }
+
+  &.-menu {
+    &-header {
+      --list-gap: 34px;
+      --item-gap: 14px;
+      --list-direction: row;
+      --link-h-color: var(--clr-neutral-800);
+      --link-gap: 14px;
+      --icon-h-fill: var(--clr-primary-500);
+    }
+  }
+  &.-download {
+    --list-gap: 24px;
+    --item-gap: 16px;
+    --list-direction: column;
+    --item-color: var(--clr-neutral-800);
+    --icon-fill: var(--clr-primary-500);
+  }
+  &.-submenu {
+    @extend %body, %-md, %-fw-600;
+    --list-direction: row;
+    --list-gap: 64px;
+    --item-direction: row;
+    --item-gap: 10px;
+    --icon-size: 24px;
+    --link-color: var(--clr-neutral-0);
+    --link-h-color: var(--clr-primary-500);
+    padding: 24px 0;
+    opacity: 0;
+    --icon-fill: var(--clr-primary-500);
+    --icon-h-fill: var(--clr-primary-400);
+    place-self: center;
+  }
+  &.-filter {
+    --list-gap: 24px;
+    --icon-fill: var(--clr-neutral-800);
+    --icon-h-fill: var(--clr-neutral-900);
+    cursor: pointer;
+  }
+  &.-social {
+    --list-gap: 16px;
+    --icon-size: 20px;
+    cursor: pointer;
+    > .item {
+      --icon-fill: var(--clr-neutral-100);
+      background-color: var(--clr-neutral-0);
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      aspect-ratio: 1/1;
+      border-radius: 4px;
+    }
+    > .item:hover {
+      background-color: var(--clr-primary-500);
+
+      --icon-h-fill: var(--clr-neutral-0);
+    }
+  }
+}
+
+.games-thumbs {
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  .swiper,
+  .swiper-container {
+    margin: 0;
+  }
+  .swiper-slide > * {
+    height: 48px;
+  }
+  .swiper-slide {
+    filter: saturate(0);
+    transition: filter 0.3s;
+    max-height: 48px;
+    max-width: 48px;
+  }
+  .swiper-slide:hover {
+    cursor: pointer;
+  }
+  .swiper-slide-thumb-active {
+    filter: saturate(100%);
+  }
+}

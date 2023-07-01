@@ -1,0 +1,120 @@
+@use "../utilities/variables" as *;
+@use "../utilities/animations" as *;
+@use "../utilities/breakpoints" as *;
+
+.-dropdown {
+  --icon-fill: var(--clr-neutral-800);
+  > .content {
+    display: grid;
+    grid-template-rows: 0fr;
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+      180deg,
+      #020203 0%,
+      rgba(14, 17, 23, 0.92) 96.35%,
+      rgba(14, 17, 23, 0.9) 100%
+    );
+    height: fit-content;
+    width: 100vw;
+    overflow: hidden;
+    margin-inline: 0;
+    padding: 95px 0 0;
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.3s;
+  }
+
+  > .content > .container {
+    display: grid;
+    flex-direction: column;
+    justify-items: space-between;
+    padding: 42px 0 0;
+  }
+
+  > .content > .container > .list {
+    place-self: end center;
+    margin: 8% 0 0;
+    position: relative;
+
+    &:after {
+      display: block;
+      content: "";
+      background-color: var(--clr-neutral-300);
+      width: 100vw;
+      margin-inline: calc(50% - 50vw);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+  }
+
+  &.active {
+    --icon-fill: var(--clr-primary-500);
+    --icon-rotate: 180deg;
+    > .content {
+      grid-template-rows: 1fr;
+      backdrop-filter: blur(6px);
+      z-index: -1;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .card.-submenu {
+      animation: show-up 1s 0.75s 1 forwards;
+    }
+    --list-animation: show-up 1s 1s 1 forwards;
+  }
+}
+
+.modal-container {
+  display: grid;
+  place-items: center;
+  background: var(--clr-neutral-160);
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  z-index: -10;
+  backdrop-filter: blur(6px);
+  .modal-login {
+    display: grid;
+    place-items: center;
+    background: url("../img/modal-bg.webp") no-repeat, var(--clr-neutral-100);
+    padding: min(90%, 60px) min(90%, 8px) min(90%, 68px);
+    width: min(90%, 696px);
+    height: min(90%, 600px);
+    opacity: 0;
+    position: relative;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    --link-color: var(--clr-primary-500);
+    --link-decoration: underline;
+    > .body {
+      text-align: center;
+    }
+    > .close {
+      position: absolute;
+      z-index: 11;
+      inset: 24px 24px auto auto;
+      cursor: pointer;
+    }
+  }
+  &.js-open {
+    opacity: 1;
+    z-index: 10;
+    > .modal-login {
+      z-index: 11;
+      animation: show-up 0.5s 1 forwards;
+    }
+  }
+  &.js-close {
+    > .modal-login {
+      animation: show-down 0.5s 1 forwards;
+    }
+  }
+}
+
+@include for-size(sm) {
+  .modal-login {
+    overflow: hidden auto;
+  }
+}

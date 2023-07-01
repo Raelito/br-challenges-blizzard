@@ -1,0 +1,69 @@
+@import "../utilities/breakpoints";
+
+.hero > .games-thumbs {
+  justify-items: start;
+}
+
+.games > .container {
+  > .content {
+    > .list.-filter,
+    > .button {
+      align-items: end;
+      justify-self: end;
+    }
+    > .button {
+      --icon-fill: var(--clr-primary-500);
+    }
+  }
+}
+
+@include for-size(xxs) {
+  .games > .container {
+    > .card-container {
+      --card-count: 1;
+    }
+    > .content > .button {
+      display: none;
+    }
+  }
+}
+
+@include for-size(sm) {
+  .hero > .container > .menu {
+    grid-row: 2;
+    position: relative;
+    bottom: 0;
+  }
+  .games > .container {
+    > .content > .list.-filter {
+      display: none;
+    }
+
+    > .card-container {
+      --card-count: 2;
+      --card-gap: 24px 16px;
+    }
+  }
+}
+
+@include for-size(md) {
+  .games > .container {
+    > .content > .heading.-xs {
+      display: none;
+    }
+
+    > .card-container {
+      --card-count: 3;
+      --card-gap: 40px 32px;
+    }
+  }
+}
+
+@include for-size(lg) {
+  .games > .container {
+    > .card-container {
+      --card-count: 4;
+      --card-gap: 48px 32px;
+    }
+  }
+}
